@@ -1,2 +1,2 @@
 # angulartut
-Angular demo app
+Angular demo weather app
