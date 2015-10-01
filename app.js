@@ -44,6 +44,10 @@ weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService
 
     $scope.city = cityService.city;
     
-    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast?q=London,us&cnt=2",
+    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast?q=London,us&cnt=2", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+    
+    $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: 2 });
+    
+    console.log($scope.weatherResult);
     
 }]);
